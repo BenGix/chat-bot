@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className="container ">
-        <header className="h-14 flex justify-between bg-lighter shadow-dark p-4">
+        <header className=" relative z-10 h-14 flex justify-between bg-lighter shadow-dark p-4">
           <button className="flex items-center">
             <ArrowRight2 color="#051214" />
             <span className=" text-xs ">بازگشت</span>
