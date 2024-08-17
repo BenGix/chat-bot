@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>test</div>;
+  return <section className="h-full bg-lighter">test</section>;
 }

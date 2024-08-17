@@ -8,6 +8,7 @@ body {
   scroll-behavior: smooth;
   box-sizing: border-box;
   min-height: 100vh;
+  @apply text-dark;
 }
 
 body {

@@ -1,7 +1,5 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ArrowRight2 } from "iconsax-react";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +8,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fa" dir="rtl">
+      <body className="container ">
+        <header className="h-14 flex justify-between bg-lighter shadow-dark p-4">
+          <button className="flex items-center">
+            <ArrowRight2 color="#051214" />
+            <span className=" text-xs ">بازگشت</span>
+          </button>
+          <h1 className="text-lg font-bold">چت بات</h1>
+          <div className="flex gap-1 invisible  ">
+            <ArrowRight2 color="#051214" />
+            <span>بازگشت</span>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

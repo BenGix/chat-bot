@@ -1,3 +1,5 @@
+const { list } = require("postcss");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,9 +10,19 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-primary":
+          "linear-gradient(263deg, #3AB9C9 -72.65%, #004F59 99.78%);",
+      },
+      textColor: {
+        dark: "#051214",
+      },
+      backgroundColor: {
+        lighter: "#F7F8FA",
+        light: "#E9ECF1",
+        blue: "#3AB9C9",
+      },
+      boxShadow: {
+        dark: " 0px 2px 27.3px 0px rgba(0, 0, 0, 0.10);",
       },
     },
   },
