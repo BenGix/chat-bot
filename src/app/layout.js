@@ -1,3 +1,4 @@
+import "../styles/font.css";
 import "./globals.css";
 import { ArrowRight2 } from "iconsax-react";
 

@@ -4,7 +4,7 @@
 
 html,
 body {
-  font-family: yekan-bakh;
+  font-family: iran-yekanx;
   scroll-behavior: smooth;
   box-sizing: border-box;
   min-height: 100vh;
@@ -19,4 +19,8 @@ body {
 
 main {
   flex-grow: 1;
+}
+
+.rounded-4xl {
+  border-radius: 2rem;
 }
