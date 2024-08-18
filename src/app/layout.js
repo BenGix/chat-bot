@@ -12,11 +12,11 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className="container ">
         <header className=" relative z-10 h-14 flex justify-between bg-lighter shadow-dark p-4">
-          <button className="flex items-center">
+          <button className="flex gap-2 items-center">
             <ArrowRight2 color="#051214" />
-            <span className=" text-xs ">بازگشت</span>
+            <span className=" text-xs">بازگشت</span>
           </button>
-          <h1 className="text-lg font-bold">چت بات</h1>
+          <h1 className="text-xl font-bold">چت بات</h1>
           <div className="flex gap-1 invisible  ">
             <ArrowRight2 color="#051214" />
             <span>بازگشت</span>
