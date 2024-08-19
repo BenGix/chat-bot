@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { AddSquare } from "iconsax-react";
 import useChatStore from "../store/useChatStore";
 import { IconNoChat } from "@/components/util/IconNoChat";
@@ -9,9 +9,18 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   const startNewSession = useChatStore((state) => state.startNewSession);
+  const initializeStore = useChatStore((state) => state.initializeStore);
   const { chatSessions } = useChatStore((state) => ({
     chatSessions: state.chatSessions,
   }));
+
+  useEffect(() => {
+    // Initialize the store
+    initializeStore();
+
+    // Debugging logs to ensure data is loaded
+    console.log("Chat sessions from store:", chatSessions);
+  }, [initializeStore]);
 
   const handleStartNewChat = async () => {
     startNewSession();
@@ -25,8 +34,8 @@ export default function Home() {
           <div className="block md:hidden">
             <ChatSessionList />
           </div>
-          <div className="hidden md:flex text-light text-center  flex-col items-center gap-12">
-            <IconNoChat />{" "}
+          <div className="hidden md:flex text-light text-center flex-col items-center gap-12">
+            <IconNoChat />
             <p>
               یک چت انتخاب کنید
               <br />

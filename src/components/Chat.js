@@ -6,7 +6,7 @@ export const Chat = ({ initialMessages = [] }) => {
   const [messages, setMessages] = useState(initialMessages);
 
   const handleSendMessage = (userMessage, botReply) => {
-    const timestamp = new Date().toISOString(); // Store timestamp as ISO string
+    const timestamp = new Date().toISOString();
 
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -50,7 +50,7 @@ export const Chat = ({ initialMessages = [] }) => {
             >
               <p className="text-sm font-normal py-2.5">{message.content}</p>
               {message.type === "user" && message.timestamp && (
-                <p className="text-xs text-white opacity-90 tex-xs">
+                <p dir="rtl" className="text-xs text-white opacity-90 tex-xs">
                   {new Date(message.timestamp).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
