@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="container ">
+      <body className="container h-screen">
         <header className=" relative z-10 h-14 flex justify-between bg-lighter shadow-dark p-4">
           <button className="flex gap-2 items-center">
             <ArrowRight2 color="#051214" />
