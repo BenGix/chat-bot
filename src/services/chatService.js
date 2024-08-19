@@ -19,6 +19,12 @@ export const sendMessageToAPI = async (message) => {
   const headers = {
     "X-API-Key": "1ef91c9ce17769114280a8aea1253fe51ac78efc",
     "Content-Type": "multipart/form-data",
+    "Access-Control-Allow-Headers":
+      "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+    "Access-Control-Allow-Methods": "OPTIONS,POST",
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "X-Requested-With": "*",
   };
 
   try {
