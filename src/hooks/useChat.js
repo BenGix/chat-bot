@@ -26,7 +26,6 @@ export const useChat = (onSendMessage) => {
       const reply = await sendMessageToAPI(message);
       onSendMessage(message, reply);
       setMessage("");
-      autoResizeTextarea(textareaRef.current);
     } catch (error) {
       console.error("Error sending message:", error);
     } finally {

@@ -24,7 +24,6 @@ export const Chat = ({ initialMessages = [] }) => {
       },
     ]);
   };
-
   return (
     <section className="h-full flex flex-col bg-white p-4">
       <div
@@ -39,18 +38,18 @@ export const Chat = ({ initialMessages = [] }) => {
             } gap-2.5`}
           >
             <div
-              className={`flex flex-col w-full justify-end max-w-72 leading-1.5 p-2 ${
+              className={`flex flex-col w-full max-w-72 leading-1.5 p-2 ${
                 message.type === "user"
                   ? "bg-gradient-primary text-white rounded-e-xl rounded-es-xl"
-                  : " bg-light rounded-s-xl rounded-ee-xl text-dark"
+                  : "bg-light text-dark rounded-s-xl rounded-ee-xl"
               }`}
             >
-              <p className="text-sm font-normal py-2.5 ">{message.content}</p>
+              <p className="text-sm font-normal py-2.5">{message.content}</p>
             </div>
           </div>
         ))}
       </div>
-      <ChatInput onSendMessage={handleSendMessage} key={messages} />
+      <ChatInput onSendMessage={handleSendMessage} />
     </section>
   );
 };
