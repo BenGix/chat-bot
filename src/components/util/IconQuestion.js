@@ -21,9 +21,9 @@ export const IconQuestion = () => {
         <path
           d="M21 13V12C21 9.79086 19.2091 8 17 8V8V8C14.7909 8 13 9.79086 13 12V12.2426C13 13.3679 13.447 14.447 14.2426 15.2426L17 18"
           stroke="white"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <defs>
           <linearGradient
@@ -34,8 +34,8 @@ export const IconQuestion = () => {
             y2="69.9615"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#3AB9C9" />
-            <stop offset="1" stop-color="#004F59" />
+            <stop stopColor="#3AB9C9" />
+            <stop offset="1" stopColor="#004F59" />
           </linearGradient>
         </defs>
       </svg>

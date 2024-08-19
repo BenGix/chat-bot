@@ -12,6 +12,7 @@
     "axios": "^1.7.4",
     "http-proxy-middleware": "^3.0.0",
     "iconsax-react": "^0.0.8",
+    "moment-jalaali": "^0.10.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
