@@ -7,11 +7,10 @@ export const ChatInput = ({ onSendMessage }) => {
   const { message, loading, handleInputChange, handleSubmit } =
     useChat(onSendMessage);
 
+  const buttonBgClass = message.trim() ? "bg-gradient-button" : "bg-mainGray";
+
   return (
-    <form
-      onSubmit={(e) => handleSubmit(e)}
-      className="min-h-11 max-h-32  pt-1 "
-    >
+    <form onSubmit={(e) => handleSubmit(e)} className="min-h-11 max-h-32 pt-1">
       <label htmlFor="chat" className="sr-only">
         Your message
       </label>
@@ -30,10 +29,10 @@ export const ChatInput = ({ onSendMessage }) => {
 
         <button
           type="submit"
-          className="flex flex-col h-full max-h-8 items-center justify-center aspect-square rounded-full bg-gradient-button rotate-180"
-          disabled={loading}
+          className={`flex flex-col h-full max-h-8 items-center justify-center aspect-square rounded-full rotate-180 ${buttonBgClass}`}
+          disabled={loading || !message.trim()}
         >
-          <Send size="16" color="#FFf" variant="Outline" />
+          <Send size="16" color="#FFF" variant="Outline" />
         </button>
       </div>
     </form>

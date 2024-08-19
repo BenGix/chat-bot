@@ -1,15 +1,28 @@
-// src/components/Header.js
 "use client";
 import React from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import { ArrowRight2 } from "iconsax-react";
-import useTitleStore from "@/store/useTitleStore";
 import Link from "next/link";
+import useChatStore from "@/store/useChatStore";
 
 export const Header = () => {
   const pathname = usePathname();
-  const { title } = useTitleStore((state) => ({ title: state.title }));
+  const { id } = useParams();
   const showHeader = pathname.startsWith("/chat");
+
+  const { chatSessions } = useChatStore((state) => ({
+    chatSessions: state.chatSessions,
+  }));
+
+  const selectedSession = chatSessions.find((session) => session.id === id);
+
+  let title = "چت بات";
+  if (selectedSession && selectedSession.messages.length > 0) {
+    const firstMessage = selectedSession.messages[0].userMessage || "";
+    const firstThreeWords = firstMessage.split(" ").slice(0, 2).join(" ");
+    title = firstThreeWords.length > 0 ? `${firstThreeWords}` : "چت بات";
+  }
+
   return (
     <>
       {pathname === "/" && (
@@ -23,7 +36,7 @@ export const Header = () => {
             <ArrowRight2 color="#051214" />
             <span className="text-xs">بازگشت</span>
           </Link>
-          <h1 className="text-xl font-bold">{title || "چت بات"}</h1>
+          <h1 className="text-xl font-bold">{title}</h1>
           <div className="flex gap-1 invisible">
             <ArrowRight2 color="#051214" />
             <span>بازگشت</span>

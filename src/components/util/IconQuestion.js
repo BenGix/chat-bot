@@ -2,7 +2,7 @@ import React from "react";
 
 export const IconQuestion = () => {
   return (
-    <div>
+    <div className="bg-gradient-button rounded-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="34"

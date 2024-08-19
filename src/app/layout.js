@@ -1,3 +1,4 @@
+import { ChatSessionList } from "@/components/chat/ChatSessionList";
 import "../styles/font.css";
 import "./globals.css";
 import { Header } from "@/components/header/Header";
@@ -9,9 +10,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="container h-screen">
-        <Header />
-        {children}
+      <body className="grid grid-cols-4 h-screen">
+        <aside className="hidden md:block col-span-1 p-4">
+          <ChatSessionList />
+        </aside>
+        <main className="w-full flex flex-col col-span-4 md:col-span-3">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );
