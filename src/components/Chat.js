@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { ChatInput } from "./chat/ChatInput";
 
-export const Chat = () => {
-  const [messages, setMessages] = useState([]);
+export const Chat = ({ initialMessages = [] }) => {
+  const [messages, setMessages] = useState(initialMessages);
 
   const handleSendMessage = (userMessage, botReply) => {
     setMessages((prevMessages) => [
@@ -35,19 +35,17 @@ export const Chat = () => {
           <div
             key={index}
             className={`flex ${
-              message.type === "user" ? "justify-end" : "justify-start"
+              message.type === "user" ? "justify-start" : "justify-end"
             } gap-2.5`}
           >
             <div
-              className={`flex flex-col w-full justify-end max-w-72 leading-1.5 p-4 rounded-xl ${
+              className={`flex flex-col w-full justify-end max-w-72 leading-1.5 p-2 ${
                 message.type === "user"
-                  ? "bg-light rounded-s-xl rounded-es-xl"
-                  : "bg-gray-200 rounded-e-xl rounded-ee-xl"
+                  ? "bg-gradient-primary text-white rounded-e-xl rounded-es-xl"
+                  : " bg-light rounded-s-xl rounded-ee-xl text-dark"
               }`}
             >
-              <p className="text-sm font-normal py-2.5 text-gray-900">
-                {message.content}
-              </p>
+              <p className="text-sm font-normal py-2.5 ">{message.content}</p>
             </div>
           </div>
         ))}

@@ -9,7 +9,7 @@ import Link from "next/link";
 export const Header = () => {
   const pathname = usePathname();
   const { title } = useTitleStore((state) => ({ title: state.title }));
-  console.log(title);
+  const showHeader = pathname.startsWith("/chat");
   return (
     <>
       {pathname === "/" && (
@@ -17,9 +17,9 @@ export const Header = () => {
           <h1 className="text-xl font-bold">چت بات</h1>
         </header>
       )}
-      {pathname === "/chat" && (
+      {showHeader && (
         <header className="relative z-10 h-14 flex justify-between bg-lighter shadow-dark p-4">
-          <Link href={'/'} className="flex gap-2 items-center">
+          <Link href={"/"} className="flex gap-2 items-center">
             <ArrowRight2 color="#051214" />
             <span className="text-xs">بازگشت</span>
           </Link>

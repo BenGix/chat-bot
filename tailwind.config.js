@@ -18,6 +18,7 @@ module.exports = {
       textColor: {
         dark: "#051214",
         light: "#B0B0B1",
+        darkBlue: "#363853",
       },
       backgroundColor: {
         lighter: "#F7F8FA",
