@@ -6,8 +6,10 @@ export const useChat = (onSendMessage) => {
   const [loading, setLoading] = useState(false);
 
   const autoResizeTextarea = (textarea) => {
-    textarea.style.height = "auto";
-    textarea.style.height = `${textarea.scrollHeight}px`;
+    if (textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
   };
 
   const handleInputChange = (e, textareaRef) => {
@@ -23,7 +25,8 @@ export const useChat = (onSendMessage) => {
       setLoading(true);
       const reply = await sendMessageToAPI(message);
       onSendMessage(message, reply);
-      setMessage("");
+      setMessage(""); // Clear the message after submission
+      autoResizeTextarea(textareaRef.current); // Adjust textarea height
     } catch (error) {
       console.error("Error sending message:", error);
     } finally {

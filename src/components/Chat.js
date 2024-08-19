@@ -18,7 +18,9 @@ export const Chat = () => {
       {
         type: "bot",
         content:
-          typeof botReply === "string" ? botReply : JSON.stringify(botReply.answer),
+          typeof botReply === "string"
+            ? botReply
+            : JSON.stringify(botReply.answer),
       },
     ]);
   };
@@ -50,7 +52,7 @@ export const Chat = () => {
           </div>
         ))}
       </div>
-      <ChatInput onSendMessage={handleSendMessage} />
+      <ChatInput onSendMessage={handleSendMessage} key={messages} />
     </section>
   );
 };
