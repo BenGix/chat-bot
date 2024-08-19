@@ -1,4 +1,6 @@
+// src/utils/api.js
 import axios from "axios";
+import useTitleStore from "../store/useTitleStore";
 
 export const sendMessageToAPI = async (message) => {
   const payload = new FormData();
@@ -18,9 +20,12 @@ export const sendMessageToAPI = async (message) => {
       { headers }
     );
 
+    // Update the Zustand store with the new title
+    useTitleStore.getState().setTitle(response.data.title);
+
     return response.data;
   } catch (error) {
     console.error("Error sending message:", error);
-    throw error; // Re-throw the error so it can be handled in the hook
+    throw error;
   }
 };
