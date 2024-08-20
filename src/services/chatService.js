@@ -3,12 +3,12 @@ import axios from "axios";
 import useChatStore from "../store/useChatStore";
 
 export const sendMessageToAPI = async (message) => {
-  const { currentSessionId } = useChatStore.getState();
+  const chatStore = useChatStore.getState();
+  let { currentSessionId } = chatStore;
 
   if (!currentSessionId) {
-    throw new Error(
-      "No active chat session found. Please start a new chat session."
-    );
+    chatStore.startNewSession();
+    currentSessionId = useChatStore.getState().currentSessionId;
   }
 
   const payload = new FormData();
@@ -34,8 +34,7 @@ export const sendMessageToAPI = async (message) => {
       { headers }
     );
 
-    // Save the user message and API response to the chat store
-    useChatStore.getState().addMessageToSession(currentSessionId, {
+    chatStore.addMessageToSession(currentSessionId, {
       userMessage: message,
       apiResponse: response.data.answer,
       timestamp: new Date().toISOString(),
